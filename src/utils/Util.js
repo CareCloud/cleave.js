@@ -199,9 +199,9 @@ var Util = {
         length = Math.floor(length) || 0;
         if(length < target.length) return target;
     
-        padString = padString ? String(padString) : " ";
+        padString = padString ? String(padString) : ' ';
     
-        var pad = "";
+        var pad = '';
         var len = length - target.length;
         var i = 0;
         while(pad.length < len) {
