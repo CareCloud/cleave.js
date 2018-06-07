@@ -82,6 +82,7 @@ Cleave.prototype = {
             pps.delimiter,
             pps.alwaysShowDecimals
         );
+
     },
 
     initDateFormatter: function () {
