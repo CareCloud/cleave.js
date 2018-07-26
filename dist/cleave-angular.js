@@ -679,14 +679,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return new RegExp(delimiter.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1'), 'g');
 	    },
 
-	    getNextCursorPosition: function (prevPos, oldValue, newValue, delimiter, delimiters) {
-	      // If cursor was at the end of value, just place it back.
-	      // Because new value could contain additional chars.
-	      if (oldValue.length === prevPos) {
-	          return newValue.length;
-	      }
+	    getNextCursorPosition: function getNextCursorPosition(prevPos, oldValue, newValue, delimiter, delimiters, alwaysShowDecimals, numeralDecimalScale) {
+	        // If cursor was at the end of value, just place it back.
+	        // Because new value could contain additional chars.
+	        if (oldValue.length === prevPos) {
+	            if (alwaysShowDecimals) {
+	                return newValue.length - (numeralDecimalScale + 1);
+	            } else {
+	                return newValue.length;
+	            }
+	        }
 
-	      return prevPos + this.getPositionOffset(prevPos, oldValue, newValue, delimiter ,delimiters);
+	        return prevPos + this.getPositionOffset(prevPos, oldValue, newValue, delimiter, delimiters);
 	    },
 
 	    getPositionOffset: function (prevPos, oldValue, newValue, delimiter, delimiters) {

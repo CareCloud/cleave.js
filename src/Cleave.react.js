@@ -373,7 +373,7 @@ var cleaveReactClass = CreateReactClass({
 
         owner.lastInputValue = newValue;
 
-        endPos = Util.getNextCursorPosition(endPos, oldValue, newValue, pps.delimiter, pps.delimiters);
+        endPos = Util.getNextCursorPosition(endPos, oldValue, newValue, pps.delimiter, pps.delimiters, pps.alwaysShowDecimals, pps.numeralDecimalScale);
 
         if (owner.isAndroid) {
             window.setTimeout(function () {
